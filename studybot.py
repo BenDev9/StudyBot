@@ -104,7 +104,7 @@ if __name__ == '__main__':
     # Imports the cogs so the bot knows they exist.
     cogs = {'admin_cog', 'time_tracker_cog', 'timer_cog', 'github_cog'}
     for i in cogs:
-        bot.load_extension(i)
+        bot.load_extension(f"Cogs.{i}")
     # Starts the bot.
     # Note: This blocks until the bot shuts down.
     bot.run(TOKENS.get("DISCORD_TOKEN"))
