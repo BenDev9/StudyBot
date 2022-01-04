@@ -63,6 +63,11 @@ def setup_database() -> sqlite3.Connection:
         table += '(discord_id integer, github_id integer)'
         db_conn.execute(table)
         db_conn.commit()
+        # Create thanks_points database table.
+        table = 'CREATE TABLE IF NOT EXISTS thanks_points'
+        table += '(id integer, points integer, server text)'
+        db_conn.execute(table)
+        db_conn.commit()
     return db_conn
 
 
