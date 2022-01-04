@@ -52,6 +52,7 @@ class Thanks_Points(commands.Cog):
             await self.add_point(mentioned, message.guild)
 
     @commands.command(name="get-points")
-    async def get_points_command(self, ctx:commands.Context):
-        points = await self.get_points(ctx.author, ctx.guild)
+    async def get_points_command(self, ctx:commands.Context, user:discord.User=None):
+        if user == None: points = await self.get_points(ctx.author, ctx.guild)
+        else: points = await self.get_points(user, ctx.guild)
         await ctx.reply(f"You have {points} points!")
